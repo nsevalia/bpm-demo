@@ -1,0 +1,303 @@
+import org.drools.core.process.core.datatype.impl.type.StringDataType;
+import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
+import org.drools.core.process.core.datatype.impl.type.IntegerDataType;
+
+[
+  [
+    "name" : "Email",
+    "parameters" : [
+      "From" : new StringDataType(),
+      "To" : new StringDataType(),
+      "Subject" : new StringDataType(),
+      "Body" : new StringDataType()
+    ],
+    "displayName" : "Email",
+    "icon" : "defaultemailicon.gif"
+  ],
+
+  [
+    "name" : "Log",
+    "parameters" : [
+      "Message" : new StringDataType()
+    ],
+    "displayName" : "Log",
+    "icon" : "defaultlogicon.gif"
+  ],
+
+  [
+    "name" : "WebService",
+    "parameters" : [
+        "Url" : new StringDataType(),
+         "Namespace" : new StringDataType(),
+         "Interface" : new StringDataType(),
+         "Operation" : new StringDataType(),
+         "Parameter" : new StringDataType(),
+         "Endpoint" : new StringDataType(),
+         "Mode" : new StringDataType()
+    ],
+    "results" : [
+        "Result" : new ObjectDataType(),
+    ],
+    "displayName" : "WS",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+
+  [
+    "name" : "Rest",
+    "parameters" : [
+        "Url" : new StringDataType(),
+        "Method" : new StringDataType(),
+        "ConnectTimeout" : new StringDataType(),
+        "ReadTimeout" : new StringDataType(),
+        "Username" : new StringDataType(),
+        "Password" : new StringDataType(),
+        "HandleResponseErrors" : new StringDataType()
+    ],
+    "results" : [
+        "Result" : new ObjectDataType(),
+    ],
+    "displayName" : "REST",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  
+  [
+    "name" : "CreateUpdateKANACase",
+    "parameters" : [
+        "claim_obj" : new ObjectDataType(),
+        "stage" : new StringDataType(),
+        "kana_operation" : new StringDataType(),
+        "kana_state" : new StringDataType(),
+        "kana_note" : new StringDataType(),
+        
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "Create/Update KANA Case",
+    "icon" : "defaultservicenodeicon.png"
+  ]
+  
+  ,
+  
+  [
+    "name" : "LoadProperties",
+    "parameters" : [
+        "location" : new StringDataType();
+        
+    ],
+    "results" : [
+        "prop_obj" : new ObjectDataType(),
+    ],
+    "displayName" : "LoadProperties",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "KanaAddAttachment",
+    "parameters" : [
+        "kana_url" : new StringDataType(),
+        "filePath" : new StringDataType(),
+        "caseId" : new StringDataType(),
+        "claimRef" : new StringDataType(),
+        "serverURI" : new StringDataType(),
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "KanaAddAttachment",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "ClaimsBpmsMappingTableUpdate",
+    "parameters" : [
+        "operation" : new StringDataType(),
+        "claim_reference" : new StringDataType(),
+        "processInstaceId_main" : new IntegerDataType(),
+        "processInstaceId_signal" : new IntegerDataType(),
+        "processName_signal" : new StringDataType(),
+        "claimState_new" : new StringDataType(),
+        "signal_name" : new StringDataType()
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "ClaimsBpmsMappingTableUpdate",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  ,
+  [
+    "name" : "LogClaimProcessExceptions",
+    "parameters" : [
+        "error_map" : new ObjectDataType()
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "LogClaimProcessExceptions",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "PopulateAccertifyCallBody",
+    "parameters" : [
+        "claimObj" : new ObjectDataType(),
+        "bookingObj" : new ObjectDataType(),
+        "flightObj" : new ObjectDataType()
+        
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "PopulateAccertifyCallBody",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "CreditPayment",
+    "parameters" : [
+        "claimObj" : new ObjectDataType()
+        
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "CreditPayment",
+    "icon" : "defaultservicenodeicon.png"
+  ]
+  ,
+  [
+    "name" : "PrepateEresAddCommentRequest",
+    "parameters" : [
+        "claim_obj" : new ObjectDataType(),
+        "flight_status_obj" : new ObjectDataType(),
+        "reason" : new StringDataType(),
+        "comment_type" : new StringDataType(),
+        "ej_comment_type" : new StringDataType(),
+        "claim_status" : new StringDataType()
+    ],
+    "results" : [
+        "Result" : new StringDataType(),
+    ],
+    "displayName" : "PrepateEresAddCommentRequest",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+"name" : "CalculateClaimWelfr",
+"parameters" : [
+"claim_obj" : new ObjectDataType(),
+"exchange_obj" : new ObjectDataType()
+
+],
+"results" : [
+"Result" : new StringDataType(),
+],
+"displayName" : "CalculateClaimWelfr",
+"icon" : "defaultservicenodeicon.png"
+],
+
+  [
+"name" : "PopulateEresCreditPayRequest",
+"parameters" : [
+"claim_obj" : new ObjectDataType(),
+"amount" : new StringDataType()
+
+],
+"results" : [
+"Result" : new StringDataType(),
+],
+"displayName" : "Populate Eres Credit Pay Request",
+"icon" : "defaultservicenodeicon.png"
+],
+[
+"name" : "KanaEmailService",
+"parameters" : [
+"claim_obj" : new ObjectDataType(),
+"templateName" : new StringDataType(),
+"placeHolderList" : new ObjectDataType()
+
+],
+"results" : [
+"Result" : new StringDataType(),
+],
+"displayName" : "KanaEmailService",
+"icon" : "defaultservicenodeicon.png"
+]
+,
+[
+"name" : "CalculateDelay",
+"parameters" : [
+"claim_obj" : new ObjectDataType(),
+"prop_obj" : new ObjectDataType()
+
+],
+"results" : [
+"delay" : new StringDataType(),
+],
+"displayName" : "CalculateDelay",
+"icon" : "defaultservicenodeicon.png"
+]
+
+,
+[
+"name" : "OCCEmail",
+"parameters" : [
+"claim_obj" : new ObjectDataType(),
+"template_name" : new StringDataType()
+
+],
+"results" : [
+"Result" : new StringDataType(),
+],
+"displayName" : "Send OCC Email",
+"icon" : "defaultservicenodeicon.png"
+],
+
+[
+"name" : "ParseEventMessage",
+"parameters" : [
+"event_message" : new StringDataType(),
+"action" : new StringDataType()
+
+],
+"results" : [
+"claim_reference" : new StringDataType(),
+"manual_status" : new StringDataType(),
+"reqstBody" : new StringDataType(),
+"rest_url" : new StringDataType()
+],
+"displayName" : "Parse Event Message",
+"icon" : "defaultservicenodeicon.png"
+]
+
+,
+
+[
+"name" : "ITDCEmailHandler",
+"parameters" : [
+"prop_obj" : new ObjectDataType(),
+"claim_obj" : new ObjectDataType(),
+"processName" : new StringDataType(),
+"processId" : new StringDataType(),
+"exception" : new StringDataType()
+
+],
+"results" : [
+    "Result" : new StringDataType(),
+],
+"displayName" : "Send Email to ITSD",
+"icon" : "defaultservicenodeicon.png"
+]
+
+,
+
+[
+"name" : "GetClassification",
+"parameters" : [
+"disruption_reason" : new StringDataType()
+],
+"results" : [
+    "classification" : new StringDataType(),
+],
+"displayName" : "Get Flight Classification",
+"icon" : "defaultservicenodeicon.png"
+]
+  
+
+]

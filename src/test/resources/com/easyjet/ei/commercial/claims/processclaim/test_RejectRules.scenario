@@ -1,0 +1,157 @@
+<scenario>
+  <name>test_RejectRules.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <fact-data>
+      <type>RulesResultObject</type>
+      <fieldData>
+        <field-data>
+          <name>distruptionResult</name>
+          <value>DEPARTURE_DELAY_2_</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>r</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>Claims</type>
+      <fieldData>
+        <field-data>
+          <name>flightDate</name>
+          <value>2014-01-17T10:45:00</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>createDate</name>
+          <value>2014-01-01T10:45:00</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>claimType</name>
+          <value>EUC</value>
+          <nature>4</nature>
+        </field-data>
+        <field-data>
+          <name>claimLines</name>
+        </field-data>
+      </fieldData>
+      <name>claim</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>BookingInfo</type>
+      <fieldData>
+        <field-data>
+          <name>isStaffTravel</name>
+          <value>tru</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>b</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>Reject_RuleFlow</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>64</executionTimeResult>
+      <numberOfRulesFired>0</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>DisruptionLessThan2Hours</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [DisruptionLessThan2Hours] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>CalculateFlightDateDifference</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [CalculateFlightDateDifference] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>FlightDateGreaterThanSixYears</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [FlightDateGreaterThanSixYears] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>CalculateFlightAndClaimDateDifference</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [CalculateFlightAndClaimDateDifference] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>FlightDateGreaterThanClaimsDate</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [FlightDateGreaterThanClaimsDate] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>DisruptionMoreThan2Hours</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [DisruptionMoreThan2Hours] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>DisruptionIsDiversionWithNoDelay</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [DisruptionIsDiversionWithNoDelay] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>IsStaffBooking</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [IsStaffBooking] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>CheckClaimLineForWelfareWithMeal</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [CheckClaimLineForWelfareWithMeal] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>IsMealPresentInClaim</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [IsMealPresentInClaim] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+    <expect-rule>
+      <ruleName>FlightDateOlderThanSixYears</ruleName>
+      <expectedCount>1</expectedCount>
+      <explanation>Rule [FlightDateOlderThanSixYears] activated 0 times. Expected 1 times.</explanation>
+      <successResult>false</successResult>
+      <actualResult>0</actualResult>
+    </expect-rule>
+  </fixtures>
+  <lastRunResult>2017-05-19 09:01:29.89 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>com.easyjet.ei.commercial.claims.processclaim</packageName>
+  <imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.easyjet.ei.commercials.claims.pojo.claims.Claims</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.easyjet.ei.commercials.claims.pojo.geteresbooinginfo.BookingInfo</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+  <ksessions>
+    <string>defaultKieSession</string>
+  </ksessions>
+</scenario>

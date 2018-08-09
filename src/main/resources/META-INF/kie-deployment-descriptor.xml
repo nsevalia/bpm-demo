@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<deployment-descriptor xsi:schemaLocation="http://www.jboss.org/jbpm deployment-descriptor.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <persistence-unit>org.jbpm.domain</persistence-unit>
+    <audit-persistence-unit>org.jbpm.domain</audit-persistence-unit>
+    <audit-mode>JPA</audit-mode>
+    <persistence-mode>JPA</persistence-mode>
+    <runtime-strategy>PER_PROCESS_INSTANCE</runtime-strategy>
+    <marshalling-strategies>
+        <marshalling-strategy>
+            <resolver>mvel</resolver>
+            <identifier>new org.drools.persistence.jpa.marshaller.JPAPlaceholderResolverStrategy("com.easyjet.ei.commercial.claims:ProcessClaim:1.0", classLoader)</identifier>
+            <parameters/>
+        </marshalling-strategy>
+    </marshalling-strategies>
+    <event-listeners/>
+    <task-event-listeners/>
+    <globals/>
+    <work-item-handlers>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.LogClaimProcessExceptions()</identifier>
+            <parameters/>
+            <name>LogClaimProcessExceptions</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new org.jbpm.process.instance.impl.demo.SystemOutWorkItemHandler()</identifier>
+            <parameters/>
+            <name>Log</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.PopulateEresCreditPayRequest()</identifier>
+            <parameters/>
+            <name>PopulateEresCreditPayRequest</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.ParseEventMessage()</identifier>
+            <parameters/>
+            <name>ParseEventMessage</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new org.jbpm.process.workitem.webservice.WebServiceWorkItemHandler(ksession, classLoader)</identifier>
+            <parameters/>
+            <name>WebService</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.KanaCreateUpdate()</identifier>
+            <parameters/>
+            <name>CreateUpdateKANACase</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.CalculateClaimWelfr()</identifier>
+            <parameters/>
+            <name>CalculateClaimWelfr</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.PopulateAccertifyCallBody()</identifier>
+            <parameters/>
+            <name>PopulateAccertifyCallBody</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.KanaEmailService()</identifier>
+            <parameters/>
+            <name>KanaEmailService</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.CalculateDelayForProcessing()</identifier>
+            <parameters/>
+            <name>CalculateDelay</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.CreditPayment()</identifier>
+            <parameters/>
+            <name>CreditPayment</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new org.jbpm.process.workitem.bpmn2.ServiceTaskHandler(ksession, classLoader)</identifier>
+            <parameters/>
+            <name>Service Task</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.LoadPropertiesFromFile()</identifier>
+            <parameters/>
+            <name>LoadProperties</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.common.RestUtils()</identifier>
+            <parameters/>
+            <name>Rest</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.KanaAddAttachment()</identifier>
+            <parameters/>
+            <name>KanaAddAttachment</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.ClaimsBpmsMappingTableUpdate()</identifier>
+            <parameters/>
+            <name>ClaimsBpmsMappingTableUpdate</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.PrepareEresAddCommentRequest()</identifier>
+            <parameters/>
+            <name>PrepateEresAddCommentRequest</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.InsertFlightDataForOCC()</identifier>
+            <parameters/>
+            <name>OCCEmail</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.ITDCEmailHandler()</identifier>
+            <parameters/>
+            <name>ITDCEmailHandler</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new com.easyjet.ei.commercials.claims.handlers.GetFlightClassification()</identifier>
+            <parameters/>
+            <name>GetClassification</name>
+        </work-item-handler>
+    </work-item-handlers>
+    <environment-entries/>
+    <configurations/>
+    <required-roles/>
+    <remoteable-classes>
+        <remoteable-class>com.easyjet.ei.commercials.claims.pojo.inputmsg.InitiateClaimProcessRequest</remoteable-class>
+    </remoteable-classes>
+    <limit-serialization-classes>false</limit-serialization-classes>
+</deployment-descriptor>
